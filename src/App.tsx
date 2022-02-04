@@ -1,26 +1,48 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route } from "react-router-dom";
+import Home from "./views/Home";
+import Detail from "./views/Detail";
+import Cart from "./views/Cart";
+import Invoice from "./views/Invoice";
+import InvoiceId from "./views/InvoiceId";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+        <Route path="/" element={<Home />}>
+          <Route path="detail" element={<Detail />} />
+          <Route path="cart" element={<Cart />} />
+          <Route path="invoices" element={<Invoice />}>
+            <Route path=":invoiceId" element={<InvoiceId />} />
+            <Route index element={ // 本质上没有路由，空白页面
+              <main>
+                <p>您还没有选择任何内容</p>
+              </main>
+            } />
+          </Route>
+
+          <Route
+            path="*"
+            element={
+              <main>
+                <p>页面走丢了</p>
+              </main>
+            }
+          />
+          {/* 无匹配，默认路由 */}
+        </Route>
+      </Routes>
     </div>
   );
 }
-
+/**
+ * 路由嵌套 Outlet
+ * 无路由匹配 path="*"
+ * url路由传参 useParams 子路由嵌套 path=":invoiceId"
+ * 索引路由 
+ *    -父路由的默认路由
+ * NavLink
+ * 搜索参数
+ * 自定义NavLink
+ */
 export default App;
