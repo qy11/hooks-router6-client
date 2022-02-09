@@ -5,6 +5,11 @@ interface IPhones {
   colors: IPoneColor[];
   version: IPoneVersion[];
 }
+
+interface IFlatPhones extends IPhones {
+  currentColor: IPoneColor;
+}
+
 interface IPoneColor {
   cid: number;
   mark: string;
@@ -17,4 +22,4 @@ interface IPoneVersion {
   title: string;
   price: number;
 }
-export type { IPhones, IPoneColor, IPoneVersion };
+export type { IPhones, IPoneColor, IPoneVersion, IFlatPhones };

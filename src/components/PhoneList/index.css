@@ -1,0 +1,9 @@
+.item-flex {
+  display: flex;
+}
+.img-wrap {
+  flex: 0 0 1rem;
+}
+.info-wrap {
+  flex: 1;
+}

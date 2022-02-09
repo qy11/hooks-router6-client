@@ -33,7 +33,7 @@ function App() {
           />
           {/* 无dfs 匹配，默认路由 */}
         </Route>
-        <Route path="detail" element={<Detail />} />
+        <Route path={`detail/:id/:cid/:vid/:count`} element={<Detail />} />
         <Route path="cart" element={<Cart />} />
       </Routes>
     </div>
