@@ -2,7 +2,7 @@ import React, { FC, ReactElement } from "react";
 import { Link, Outlet } from "react-router-dom";
 import Header from "../components/Header";
 
-import { useFlatPhoneList, usePhoneList } from "../hooks";
+import { usePhoneList } from "../hooks";
 import PhoneList from "../components/PhoneList";
 
 /**
@@ -12,9 +12,6 @@ interface IProps {}
 
 const Home: FC<IProps> = (): ReactElement => {
   const phoneList = usePhoneList();
-  // console.log(phoneList);
-  const flatPhoneList = useFlatPhoneList(phoneList);
-  // console.log(flatPhoneList);
   return (
     <div className="container">
       <Header headerTitle="商品列表" iconShow={false} />

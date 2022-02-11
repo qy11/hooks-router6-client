@@ -1,7 +1,7 @@
 import React, { FC, ReactElement } from "react";
 import { IPhones, IFlatPhones, IPoneColor, IPoneVersion } from "../../typings";
 import { Link } from "react-router-dom";
-import "./index.css";
+import "./Item.sass";
 interface IProps {
   dataItem: IFlatPhones;
 }
@@ -21,9 +21,7 @@ const PhoneItem: FC<IProps> = ({ dataItem }): ReactElement => {
         to={`/detail/${id}/${cid}/${version[0].vid}/1`}
         className="item-flex"
       >
-        <div className="img-wrap">
-          <img src={img} alt={img} />
-        </div>
+        <div className={["img-wrap", img].join(" ")}></div>
         <div className="info-wrap">
           <div className="title">{name + " " + title}</div>
           <div className="badge-wrap color">

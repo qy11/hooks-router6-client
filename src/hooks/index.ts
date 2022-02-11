@@ -43,7 +43,7 @@ export const useFlatPhoneList = (phoneList: IPhones[]): IFlatPhones[] => {
 
 export const usePhoneDetail = (id: string): IPhones | undefined => {
   const phoneList = useSelector((state: IState) => state.phoneList);
-  return phoneList.find((phone: IPhones) => phone.id === parseInt(id));
+  return phoneList.find((phone: IPhones) => phone.id === parseInt(id, 10));
 };
 
 export function useSelectorCount(

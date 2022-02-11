@@ -11,19 +11,19 @@ interface IUrlParams {
   vid: string | number;
   count: string | number;
 }
+
 const Detail: FC<IProps> = (): ReactElement => {
   const { id, cid, vid, count } = useParams();
-
+  console.log(id, cid, vid, count);
   if (!id || !cid || !vid) {
     // 一定会传过来的，除非恶意请求，直接返回首页
     window.location.href = "/";
   }
 
   const phoneDetail: IPhones | undefined = usePhoneDetail(id!); // 后面加了 ! 相当于 断言
-  console.log("phoneDetail", phoneDetail);
-  if (!phoneDetail) {
-    window.location.href = "/";
-  }
+  // if (!phoneDetail) {
+  //   window.location.href = "/";
+  // }
 
   return (
     <div className="container">
