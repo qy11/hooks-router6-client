@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Dispatch } from "redux";
 import { SET_PHONE_LIST } from "./../store/type";
+import { COUNT_TYPE } from "../components/Selector";
 
 export const usePhoneList = (): IPhones[] => {
   const [phoneList, setPhoneList] = useState<IPhones[]>([]);
@@ -44,3 +45,29 @@ export const usePhoneDetail = (id: string): IPhones | undefined => {
   const phoneList = useSelector((state: IState) => state.phoneList);
   return phoneList.find((phone: IPhones) => phone.id === parseInt(id));
 };
+
+export function useSelectorCount(
+  defaultCount: number,
+  limit: number
+): [number, (type: COUNT_TYPE) => void] {
+  const [count, setCount] = useState<number>(defaultCount);
+  const setCurrentCount = function (type: COUNT_TYPE) {
+    setCount((count: number) => {
+      switch (type) {
+        case COUNT_TYPE.MINUS:
+          if (count <= 1) {
+            return count;
+          }
+          return count - 1;
+        case COUNT_TYPE.PLUS:
+          if (count >= limit) {
+            return count;
+          }
+          return count + 1;
+        default:
+          return count;
+      }
+    });
+  };
+  return [count, setCurrentCount];
+}

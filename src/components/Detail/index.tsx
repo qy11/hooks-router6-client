@@ -3,6 +3,8 @@ import { IPhones } from "../../typings";
 import Banner from "./Banner";
 import { useColor, useVersion } from "./hooks";
 import Price from "./Price/index";
+import Selector from "../Selector";
+import { useSelectorCount } from "../../hooks";
 interface IProps {
   phoneDetail: IPhones;
   cid: number;
@@ -19,14 +21,16 @@ const DetailPage: FC<IProps> = ({
   const { name, colors, version, limit } = phoneDetail;
   const [colorId, setColorId] = useState<number>(cid);
   const [versionId, setVersionId] = useState<number>(vid);
+
   const currentColor = useColor(colors, colorId);
   const currentVersion = useVersion(version, versionId);
-
+  const [count, setCurrentCount] = useSelectorCount(totalCount, limit);
   return (
     <div className="detail-wrapper">
       <Banner img={currentColor.img} name={name} />
       <div className="info-wrap">
         <Price limit={limit} price={currentVersion.price} />
+        <Selector count={count} setCount={setCurrentCount} />
       </div>
     </div>
   );
