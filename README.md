@@ -1,1 +1,2 @@
 ## THANKS
+React + Redux + TS
