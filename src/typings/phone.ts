@@ -19,7 +19,7 @@ interface IPoneColor {
 interface IPoneVersion {
   vid: number;
   mark: string;
-  title: string;
+  title?: string;
   price: number;
 }
 export type { IPhones, IPoneColor, IPoneVersion, IFlatPhones };
