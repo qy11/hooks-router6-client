@@ -6,6 +6,7 @@ axios.defaults.baseURL =
 axios.interceptors.request.use((config: AxiosRequestConfig) => {
   return config;
 });
+
 axios.interceptors.response.use(
   (res: AxiosResponse) => {
     if (res.status !== 200) {

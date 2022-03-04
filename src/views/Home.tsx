@@ -14,7 +14,7 @@ const Home: FC<IProps> = (): ReactElement => {
   const phoneList = usePhoneList();
   return (
     <div className="container">
-      <Header headerTitle="商品列表" iconShow={false} />
+      <Header headerTitle="Home列表" iconShow={false} />
       {/* 
         id：手机产品ID
         cid: color 颜色id

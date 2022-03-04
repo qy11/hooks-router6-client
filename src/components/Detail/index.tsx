@@ -14,7 +14,6 @@ interface IProps {
   vid: number;
   totalCount: number;
 }
-
 const DetailPage: FC<IProps> = ({
   phoneDetail,
   cid,

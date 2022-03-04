@@ -9,7 +9,7 @@ interface IProps {
 const Header: FC<IProps> = ({ headerTitle, iconShow }): ReactElement => {
   return (
     <div className="header">
-      <div>{iconShow && <Link to="/" > {"<"} </Link>}</div>
+      <div>{iconShow && <Link to="/"> {"<"} </Link>}</div>
       <h1>{headerTitle}</h1>
     </div>
   );

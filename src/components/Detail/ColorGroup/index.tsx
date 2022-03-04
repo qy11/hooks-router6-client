@@ -1,6 +1,6 @@
 import React, { FC, ReactElement } from "react";
 import { IPoneColor } from "../../../typings";
-
+import "./index.sass";
 interface IProps {
   colorId: number;
   colors: IPoneColor[];
